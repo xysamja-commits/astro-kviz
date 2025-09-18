@@ -987,7 +987,7 @@ const allQuizSets = {
 document.getElementById("whatsappShareBtn").onclick = () => {
   const topSign = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
   const message = `Moj dominantni astrološki znak je: ${topSign}! Saznaj svoj znak na našem kvizu 🔮`;
-  const url = "https://xysamja-commits.github.io/dnevni-horoskop/"; // optional: link to your quiz
+  const url = "https://www.lfbuyer.com/hr/zodiac/"; // optional: link to your quiz
   const whatsappLink = `https://wa.me/?text=${encodeURIComponent(message + " " + url)}`;
   window.open(whatsappLink, "_blank");
 };
