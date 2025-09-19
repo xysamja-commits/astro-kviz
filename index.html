@@ -89,6 +89,24 @@
     background-color: #ffcc00;
   }
 
+#partnerBtn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: none;
+    background-color: #ffd700;
+    color: #1e1e2f;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+#partnerBtn:hover {
+  background: #ffcc00;
+}
+
+
+
   @media (max-width: 768px) {
     body {
       padding: 20px;
@@ -121,6 +139,34 @@
   margin: 10px 5px;
 }
 
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  background-color: #ffd700;
+  color: #1e1e2f;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #ffcc00;
+}
+
+}
+
+
+
 </style>
 
 </head>
@@ -131,8 +177,19 @@
     <div id="themeTitle"></div>
     <div id="question"></div>
     <div id="answers"></div>
-    <div id="result" style="display:none;"></div>
-   <button id="restartBtn" style="display:none;">🔄 Ponovno riješi kviz</button>
+    
+<div id="result" style="display:none;"></div>
+
+<div class="button-row" style="display:none;" id="resultActions">
+  <button id="restartBtn">🔄 Ponovno riješi kviz</button>
+  <a href="https://xysamja-commits.github.io/idealan.partner/" target="_blank" id="partnerBtn" class="action-btn">💘 Vaš Idealan Partner</a>
+</div>
+
+
+
+
+
+
    
    <div id="extraActions" style="margin-top: 30px;">
   <a href="https://www.lfbuyer.com/zodiac/" target="_blank">
@@ -982,7 +1039,8 @@ const allQuizSets = {
     const resultDiv = document.getElementById("result");
     resultDiv.style.display = "block";
     resultDiv.innerText = `Tvoj dominantni astrološki znak je: ${topSign}`;
-    document.getElementById("restartBtn").style.display = "block";
+    document.getElementById("resultActions").style.display = "flex";
+
   }
 document.getElementById("whatsappShareBtn").onclick = () => {
   const topSign = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
@@ -1000,7 +1058,7 @@ document.getElementById("whatsappShareBtn").onclick = () => {
   document.getElementById("restartBtn").onclick = () => {
     initializeQuiz();
     document.getElementById("result").style.display = "none";
-    document.getElementById("restartBtn").style.display = "none";
+    document.getElementById("resultActions").style.display = "none";
     document.getElementById("themeTitle").style.display = "block";
     document.getElementById("question").style.display = "block";
     document.getElementById("answers").style.display = "block";
